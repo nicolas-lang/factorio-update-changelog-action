@@ -1,0 +1,12 @@
+# action.yml
+name: 'Generate Changelog and Update Version'
+description: 'Generates CHANGELOG.md, changelog.txt and updates info.json based on git tags and commit messages.'
+inputs:
+  github_token:
+    description: 'GitHub token for accessing the repository'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github_token }}
